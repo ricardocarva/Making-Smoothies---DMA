@@ -1,0 +1,2 @@
+Store #1:
+Weight Sold 1001 is not valid. It should be larger  or equal than 0 and less than or equal to 1000 in pounds.

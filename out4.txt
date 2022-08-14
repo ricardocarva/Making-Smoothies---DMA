@@ -1,0 +1,1 @@
+Ingredient Parts interval is not valid. It should be (1 ≤ R1 ≤ 1000) where R1 represents the number of parts.

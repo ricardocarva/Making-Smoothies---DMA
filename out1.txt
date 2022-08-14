@@ -1,0 +1,22 @@
+Store #1:
+chocolate 6.000000
+milk 7.666667
+banana 6.000000
+oatmeal 3.333333
+vanilla 1.666667
+strawberry 3.333333
+
+Store #2:
+milk 7.500000
+strawberry 5.000000
+honey 2.500000
+
+Store #3:
+chocolate 6.000000
+milk 15.166667
+banana 6.000000
+oatmeal 3.333333
+vanilla 1.666667
+strawberry 8.333333
+honey 2.500000
+

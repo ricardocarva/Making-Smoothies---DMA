@@ -1,0 +1,340 @@
+The strategy to test the integrity of the code consisted of some test cases testing the following:
+
+1) Valid inputs considering the pre-conditions.
+2) Invalid inputs considering the pre-conditions
+
+In the Test Case#1, there are only valid elements and smoothies created. The handwritten calculation below illustrates what is expected to occur. First, we enumerated the ingredients, recipes and stores.
+For each recipe, we described the total number of parts, and the formula to calculate each ingredient.
+Then, each store had its recipes and pounds of ingredients described and calculated.
+Last, we had the total of each ingredient, and checked if it matched the out1.txt file. 
+
+As expected, it matched. So, the first test case passed succesfully.
+
+See below the calculations. The next test cases are described below the illustration.
+
+-----------------------------------------------------------------------------------------
+				Test Case#1: in1.txt
+-----------------------------------------------------------------------------------------
+9 //num ingredients:n
+yogurt //0 
+chocolate //1
+milk // 2
+banana // 3
+oatmeal // 4
+vanilla // 5
+avocado //6
+strawberry //7
+honey //8
+4 // num recipes: s
+3 7 2 2 3 8 1  //recipe 0 
+4 4 2 2 1 7 2 5 1 //Recipe 1
+4 0 2 4 4 3 1 1 2 //Recipe 2 
+3 2 2 3 2 1 2 //Recipe 3
+3 // num stores: k
+2 1 10 3 18 // store 1
+1 0 15 // store 2
+3 1 10 3 18 0 15 //store 3
+
+------------------------
+Recipe 0:
+Total Parts = (2+3+1) = 6
+yogurt: 0 
+chocolate: 0
+milk: (3*poundsOfIngredients)/(2+3+1) LBs
+banana: 0
+oatmeal: 0
+vanilla: 0
+avocado: 0
+strawberry: (2*poundsOfIngredients)/(2+3+1) LBs
+honey: (1*poundsOfIngredients)/(2+3+1) LBS
+--------
+Recipe 1:
+Total Parts: (2+1+2+1) = 6
+0:yogurt: 0 
+1:chocolate: 0
+2:milk: (1*poundsOfIngredients)/(2+1+2+1)LBs
+3:banana: 0
+4:oatmeal: (2*poundsOfIngredients)/(2+1+2+1)LBs
+5:vanilla: (1*poundsOfIngredients)/(2+1+2+1)LBs
+6:avocado: 0
+7:strawberry: (2*poundsOfIngredients)/(2+1+2+1)LBs 
+8:honey: 0
+--------
+Recipe:2
+Total Parts: (2+4+1+2) = 9
+0:yogurt: (2*poundsOfIngredients)/(2+4+1+2)
+1:chocolate: (2*poundsOfIngredients)/(2+4+1+2)
+2:milk: 0
+3:banana: (1*poundsOfIngredients)/(2+4+1+2)
+4:oatmeal: (4*poundsOfIngredients)/(2+4+1+2)
+5:vanilla: 0
+6:avocado: 0
+7:strawberry: 0 
+8:honey: 0
+--------
+Recipe:3
+Total Parts: (2+2+2) = 6
+0:yogurt: 0 
+1:chocolate: (2*poundsOfIngredients)/(2+2+2)
+2:milk: (2*poundsOfIngredients)/(2+2+2) 
+3:banana: (2*poundsOfIngredients)/(2+2+2) 
+4:oatmeal: 0 
+5:vanilla: 0 
+6:avocado: 0 
+7:strawberry: 0 
+8:honey: 0 
+----------------------------------------------------
+Store :1
+----------------------------------------------------
+Recipe1 
+Total Parts: (2+1+2+1) = 6
+poundsOfIngredients = 10
+
+0:yogurt: 0 LBs
+1:chocolate: 0 LBs
+2:milk: (1*10)/(6)LBs = 1.666667 LBs
+3:banana: 0 LBs
+4:oatmeal: (2*10)/(6) LBs = 3.333333 LBs
+5:vanilla: (1*10)/(6) LBs = 1.666667 LBs
+6:avocado: 0 LBs
+7:strawberry: (2*10)/(6) LBs = 3.333333 LBs
+8:honey: 0 LBs
+
+Recipe:3
+Total Parts: (2+2+2) = 6
+poundsOfIngredients = 18
+0:yogurt: 0 LBs
+1:chocolate: (2*18)/(6)LBs 6.000000 LBs
+2:milk: (2*18)/(6) LBs =  6.000000 LBs
+3:banana: (2*18)/(6) LBs = 6.000000 LBs
+4:oatmeal: 0 LBs
+5:vanilla: 0 LBs
+6:avocado: 0 LBs
+7:strawberry: 0 LBs
+8:honey: 0 LBs
+
+So, the total amount of non zero ingredients needed for store#1
+
+chocolate: 6.000000 (calculated from 0+6.000000)
+milk: 7.666667 (calculated from 1.666667+6.000000)
+banana: 6.000000 (calculated from 0+6.000000)
+oatmeal: 3.333333 (calculated from 3.333333+0)
+vanilla: 1.666667 (calculated from 1.666667+0)
+strawberry: 3.333333 (calculated from 3.333333+0)
+----------------------------------------------------
+Store :2
+----------------------------------------------------
+Recipe 0:
+Total Parts = (2+3+1) = 6
+poundsOfIngredients = 15
+yogurt: 0 
+chocolate: 0
+milk: (3*15)/(6) = 7.500000 LBs
+banana: 0
+oatmeal: 0
+vanilla: 0
+avocado: 0
+strawberry: (2*15)/(6) = 5.000000 LBs
+honey: (1*15)/(6) = 2.500000 LBS
+
+So, the total amount of non zero ingredients needed for store#2
+
+milk: 7.500000 (calculated from 7.500000)
+banana: 6.000000 (calculated from 6.000000)
+honey: 2.500000 (calculated from 2.500000)
+----------------------------------------------------
+Store :3
+----------------------------------------------------
+Recipe 0:
+Total Parts = (2+3+1) = 6
+poundsOfIngredients = 15
+yogurt: 0 
+chocolate: 0
+milk: (3*15)/(6) = 7.500000 LBs
+banana: 0
+oatmeal: 0
+vanilla: 0
+avocado: 0
+strawberry: (2*15)/(6) = 5.000000 LBs
+honey: (1*15)/(6) = 2.500000 LBS
+
+Recipe1 
+Total Parts: (2+1+2+1) = 6
+poundsOfIngredients = 10
+
+0:yogurt: 0 LBs
+1:chocolate: 0 LBs
+2:milk: (1*10)/(6)LBs = 1.666667 LBs
+3:banana: 0 LBs
+4:oatmeal: (2*10)/(6) LBs = 3.333333 LBs
+5:vanilla: (1*10)/(6) LBs = 1.666667 LBs
+6:avocado: 0 LBs
+7:strawberry: (2*10)/(6) LBs = 3.333333 LBs
+8:honey: 0 LBs
+
+Recipe:3
+Total Parts: (2+2+2) = 6
+poundsOfIngredients = 18
+0:yogurt: 0 LBs
+1:chocolate: (2*18)/(6)LBs 6.000000 LBs
+2:milk: (2*18)/(6) LBs =  6.000000 LBs
+3:banana: (2*18)/(6) LBs = 6.000000 LBs
+4:oatmeal: 0 LBs
+5:vanilla: 0 LBs
+6:avocado: 0 LBs
+7:strawberry: 0 LBs
+8:honey: 0 LBs
+
+So, the total amount of non zero ingredients needed for store#3
+
+chocolate 6.000000 (calculated from 0+0+6.000000)
+milk 15.166667 (calculated from 7.500000+1.666667+6.000000)
+banana 6.000000 (calculated from 0+0+6.000000)
+oatmeal 3.333333 (calculated from 0+3.333333+0)
+vanilla 1.666667 (calculated from 0+1.666667+0)
+strawberry 8.333333 (calculated from 5.000000+3.333333)
+honey 2.500000 (calculated from 2.500000+0+0)
+
+
+In the Test Case#2, we applied an invalid input in the weight of the store#1. The weigth was over 1000, which is invalid. It is expected the code will exit with status 1, and print to the screen.
+Interval accepeted: (1 ≤ W1 ≤ 1000)
+As expected, the test passed.
+-----------------------------------------------------------------------------------------
+				Test Case#2: in2.txt
+-----------------------------------------------------------------------------------------
+10  //num ingredients:n
+yogurt
+oranges
+pineapple
+bananas
+whey
+fruit_punch
+kiwis
+strawberries
+ice
+protein
+5 // num recipes: s
+4 7 2 3 1 6 1 0 2
+2 7 5 3 2
+10 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10
+3 9 3 1 2 2 1
+5 4 5 5 1 8 2 1 3 2 1
+4 // num stores: k
+1 0 1001 //Expected to fail because the weight is over 1000 pounds. Interval accepeted: (1 ≤ W1 ≤ 1000)
+2 0 100 2 1000
+2 1 13 3 25
+3 0 50 2 25 4 125
+
+
+In the Test Case#3, we applied an invalid input number of ingredients of the smoothie recipe # 0 . The number of ingredients was over 0, which is invalid. It is expected the code will exit with status 1, and print to the screen.
+Interval accepted: (1 ≤ m ≤ 100)
+As expected, the test passed.
+
+-----------------------------------------------------------------------------------------
+				Test Case#3: in3.txt
+-----------------------------------------------------------------------------------------
+9 //num ingredients:n
+yogurt
+chocolate
+milk
+banana
+oatmeal
+vanilla
+avocado
+strawberry
+honey
+4 // num recipes: s
+0 7 2 2 3 8 1 //Expected to fail because the number of ingredients of the smoothie recipe is not valid. Interval accepted: (1 ≤ m ≤ 100)
+4 4 2 2 1 7 2 5 1
+4 0 2 4 4 3 1 1 2
+3 2 2 3 2 1 2
+3 // num stores: k
+2 1 10 3 18
+1 0 15
+3 2 8 1 4 2 13
+
+In the Test Case#4, we applied an invalid input number of parts of the ingredient in the recipe# 0 . The number of ingredients was over 1000, which is invalid. It is expected the code will exit with status 1, and print to the screen.
+Interval accepted: (1 ≤ R1 ≤ 1000)
+As expected, the test passed.
+
+-----------------------------------------------------------------------------------------
+				Test Case#4: in4.txt
+-----------------------------------------------------------------------------------------
+9//num ingredients:n
+yogurt 
+chocolate
+milk
+banana
+oatmeal
+vanilla
+avocado
+strawberry
+honey
+4 // num recipes : s
+3 7 1001 2 3 8 1 //Expected to fail because the number of parts of the ingredient is not valid >1000. Interval accepted: (1 ≤ R1 ≤ 1000)
+4 0 2 4 4 3 1 1 2
+3 2 2 3 2 1 2
+3 // num stores: k
+2 1 10 3 18
+1 0 15
+3 2 8 1 4 2 13
+
+
+In the Test Case#5, we applied an invalid input ingredientID in the recipe# 0 . The number of ingredient ID was over the number of possible ingredients, which is invalid. It is expected the code will exit with status 1, and print to the screen.
+Interval accepted: (0 ≤ I1 < n)
+As expected, the test passed.
+
+-----------------------------------------------------------------------------------------
+				Test Case#5: in5.txt
+-----------------------------------------------------------------------------------------
+9//num ingredients:n
+yogurt
+chocolate
+milk
+banana
+oatmeal
+vanilla
+avocado
+strawberry
+honey
+4// num recipes: s
+3 165 2 2 3 8 1 //Expected to fail because the ingredient ID is not valid. Interval accepted: (0 ≤ I1 < n)
+4 4 2 2 1 7 2 5 1
+4 0 2 4 4 3 1 1 2
+3 2 2 3 2 1 2
+3// num stores: k
+2 1 10 3 18
+1 0 15
+3 1 10 3 18 0 15
+
+
+
+In the Test Case#6, we applied an invalid input recipe in the store# 1. The number of recipe was over the number of possible recipes, which is invalid. It is expected the code will exit with status 1, and print to the screen
+Interval accepted:(0 ≤ S1 < s)
+As expected, the test passed.
+
+-----------------------------------------------------------------------------------------
+				Test Case#6: in6.txt
+-----------------------------------------------------------------------------------------
+9 //num ingredients:n
+yogurt
+chocolate
+milk
+banana
+oatmeal
+vanilla
+avocado
+strawberry
+honey
+4 // num recipes: s
+3 7 2 2 3 8 1
+4 4 2 2 1 7 2 5 1
+4 0 2 4 4 3 1 1 2
+3 2 2 3 2 1 2
+3// num stores: k
+2 5 10 3 18 //Expected to fail because the recipe is not valid. Interval accepted: (0 ≤ S1 < s)
+1 0 15
+3 1 10 3 18 0 15
+
+There were several other tests performed to ensure the code was reliable throughout the code.
+

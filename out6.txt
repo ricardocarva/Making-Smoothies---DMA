@@ -1,0 +1,2 @@
+Store #1:
+Recipe 5 is not valid. It should be larger  or equal than 0 and less than or equal to the number of Smoothie Recipes.

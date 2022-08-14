@@ -1,0 +1,1 @@
+Number of different Smoothies ingredients is not valid. It should be larger than 1 and less than or equal to 100
